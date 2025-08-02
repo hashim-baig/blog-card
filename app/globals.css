@@ -1,26 +1,169 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('/fonts/NotoSans.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
+  /* Background and Foreground */
   --background: #ffffff;
   --foreground: #171717;
+  --gradient-bg: linear-gradient(135deg, #F9FAFB 0%, #D2D6DB 100%);
+
+  /* Text Colors */
+  --color-primary: #171717;
+  --color-primary-hover: #0a0a0a;
+  --color-primary-invert: #ffffff;
+  --color-secondary: #525252;
+  --color-tertiary: #737373;
+  --color-brand: #4338ca;
+  --color-disabled: #a3a3a3;
+  --color-error: #dc2626;
+  --color-error-emphasize: #991b1b;
+  --color-success: #15803d;
+  --color-warning: #a16207;
+
+  /* Background Colors */
+  --bg-primary: #ffffff;
+  --bg-primary-inverted: #0a0a0a;
+  --bg-primary-hover: #fafafa;
+  --bg-secondary: #e5e7eb;
+  --bg-secondary-hover: #d1d5db;
+  --bg-tertiary: #fafafa;
+  --bg-disabled: #f5f5f5;
+  --bg-disabled-emphasize: #f3f4f6;
+  --bg-brand-primary: #4338ca;
+  --bg-brand-primary-emphasize: #3730a3;
+  --bg-error: #dc2626;
+  --bg-error-emphasize: #b91c1c;
+  --bg-error-subtle: #fef2f2;
+  --bg-success-subtle: #f0fdf4;
+  --bg-brand-subtle: #eef2ff;
+  --bg-neutral-subtle: #f9fafb;
+  --bg-warning-subtle: #fffbeb;
+
+  /* Line Colors (Border / Rings) */
+  --border-primary: #e5e5e5;
+  --border-secondary: #9ca3af;
+  --border-success: #bbf7d0;
+  --border-brand-solid: #4f46e5;
+  --border-brand-subtle: #c7d2fe;
+  --border-error-subtle: #fecaca;
+  --border-warning-subtle: #fde68a;
+
+  /* Icon Colors */
+  --icon-emphasize: #404040;
+  --icon-primary: #a3a3a3;
+  --icon-primary-hover: #737373;
+  --icon-brand: #6366f1;
+  --icon-brand-background: #eef2ff;
+  --icon-success: #15803d;
+  --icon-error: #dc2626;
+  --icon-warning: #facc15;
+
+  /* Input Field, Form, Textarea Colors */
+  --input-text-title: #404040;
+  --input-text-placeholder: #737373;
+  --input-text-hint: #737373;
+  --input-text-filled: #171717;
+  --input-text-disabled: #a3a3a3;
+  --input-text-error: #dc2626;
+  --input-background: #fafafa;
+  --input-border: #e5e5e5;
+
+  --font-noto: "Noto Sans", sans-serif;
+  --font-path: '/fonts';
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  /* Text Colors */
+  --color-primary: var(--color-primary);
+  --color-primary-hover: var(--color-primary-hover);
+  --color-primary-invert: var(--color-primary-invert);
+  --color-secondary: var(--color-secondary);
+  --color-tertiary: var(--color-tertiary);
+  --color-brand: var(--color-brand);
+  --color-disabled: var(--color-disabled);
+  --color-error: var(--color-error);
+  --color-error-emphasize: var(--color-error-emphasize);
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+
+  /* Background Colors */
+  --bg-primary: var(--bg-primary);
+  --bg-primary-inverted: var(--bg-primary-inverted);
+  --bg-primary-hover: var(--bg-primary-hover);
+  --bg-secondary: var(--bg-secondary);
+  --bg-secondary-hover: var(--bg-secondary-hover);
+  --bg-tertiary: var(--bg-tertiary);
+  --bg-disabled: var(--bg-disabled);
+  --bg-disabled-emphasize: var(--bg-disabled-emphasize);
+  --bg-brand-primary: var(--bg-brand-primary);
+  --bg-brand-primary-emphasize: var(--bg-brand-primary-emphasize);
+  --bg-error: var(--bg-error);
+  --bg-error-emphasize: var(--bg-error-emphasize);
+  --bg-error-subtle: var(--bg-error-subtle);
+  --color-bc-success-subtle: var(--bg-success-subtle);
+  --bg-brand-subtle: var(--bg-brand-subtle);
+  --bg-neutral-subtle: var(--bg-neutral-subtle);
+  --bg-warning-subtle: var(--bg-warning-subtle);
+
+  /* Line Colors (Border / Rings) */
+  --color-br-primary: var(--border-primary);
+  --border-secondary: var(--border-secondary);
+  --color-br-success: var(--border-success);
+  --border-brand-solid: var(--border-brand-solid);
+  --border-brand-subtle: var(--border-brand-subtle);
+  --border-error-subtle: var(--border-error-subtle);
+  --border-warning-subtle: var(--border-warning-subtle);
+
+  /* Icon Colors */
+  --icon-emphasize: var(--icon-emphasize);
+  --icon-primary: var(--icon-primary);
+  --icon-primary-hover: var(--icon-primary-hover);
+  --icon-brand: var(--icon-brand);
+  --icon-brand-background: var(--icon-brand-background);
+  --icon-success: var(--icon-success);
+  --icon-error: var(--icon-error);
+  --icon-warning: var(--icon-warning);
+
+  /* Input Field, Form, Textarea Colors */
+  --input-text-title: var(--input-text-title);
+  --input-text-placeholder: var(--input-text-placeholder);
+  --input-text-hint: var(--input-text-hint);
+  --input-text-filled: var(--input-text-filled);
+  --input-text-disabled: var(--input-text-disabled);
+  --input-text-error: var(--input-text-error);
+  --input-background: var(--input-background);
+  --input-border: var(--input-border);
+
+  --font-noto: var(--font-noto);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+
+    /* You might want to override some vars here for dark mode, if needed */
+    /* For example: */
+    --color-primary: #ededed;
+    --color-primary-hover: #ffffff;
+    --color-primary-invert: #171717;
+    /* Add other overrides as desired */
   }
 }
 
 body {
-  background: var(--background);
+  background: var(--gradient-bg);
+  object-fit: cover;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-noto), serif;
 }
